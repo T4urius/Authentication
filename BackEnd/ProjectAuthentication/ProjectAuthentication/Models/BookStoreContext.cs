@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectAuthentication.Models
 {
-    public class BookStoreContext : DbContext
+    public partial class BookStoreContext : DbContext
     {
         public BookStoreContext()
         {
@@ -17,6 +17,9 @@ namespace ProjectAuthentication.Models
         {
 
         }
+
+        public virtual DbSet<TblBook> TblBook { get; set; }
+        public virtual DbSet<TblUser> TblUser { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,6 +33,7 @@ namespace ProjectAuthentication
         {
             //Conexão BD
             services.AddDbContext<BookStoreContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SQLConnection")));
+            services.AddAutoMapper();
 
             //MVC
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
