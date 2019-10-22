@@ -22,7 +22,7 @@ namespace ProjectAuthentication.AutoMapper
 
             CreateMap<RegisterDto, TblUser>()
                 .ForMember(c => c.Email, s => s.MapFrom(b => b.Email))
-                .ForMember(c => c.Password, s => s.MapFrom(b => b.Password))
+                .ForMember(c => c.Password, s => s.MapFrom(b => System.Text.Encoding.UTF8.GetBytes(b.Password)))
                 .ForMember(c => c.FullName, s => s.MapFrom(b => b.FullName)).ReverseMap();
         }
     }
