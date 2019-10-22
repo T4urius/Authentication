@@ -1,0 +1,16 @@
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\ProjectAuthentication\ProjectAuthentication\bin\Debug\netcoreapp2.1\appsettings.Development.json
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\ProjectAuthentication\ProjectAuthentication\bin\Debug\netcoreapp2.1\appsettings.json
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\ProjectAuthentication\ProjectAuthentication\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\ProjectAuthentication\ProjectAuthentication\bin\Debug\netcoreapp2.1\ProjectAuthentication.deps.json
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\ProjectAuthentication\ProjectAuthentication\bin\Debug\netcoreapp2.1\ProjectAuthentication.runtimeconfig.json
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\ProjectAuthentication\ProjectAuthentication\bin\Debug\netcoreapp2.1\ProjectAuthentication.runtimeconfig.dev.json
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\ProjectAuthentication\ProjectAuthentication\bin\Debug\netcoreapp2.1\ProjectAuthentication.dll
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\ProjectAuthentication\ProjectAuthentication\obj\Debug\netcoreapp2.1\ProjectAuthentication.csprojAssemblyReference.cache
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\ProjectAuthentication\ProjectAuthentication\obj\Debug\netcoreapp2.1\ProjectAuthentication.RazorAssemblyInfo.cache
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\ProjectAuthentication\ProjectAuthentication\obj\Debug\netcoreapp2.1\ProjectAuthentication.RazorAssemblyInfo.cs
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\ProjectAuthentication\ProjectAuthentication\obj\Debug\netcoreapp2.1\ProjectAuthentication.AssemblyInfoInputs.cache
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\ProjectAuthentication\ProjectAuthentication\obj\Debug\netcoreapp2.1\ProjectAuthentication.AssemblyInfo.cs
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\ProjectAuthentication\ProjectAuthentication\obj\Debug\netcoreapp2.1\ProjectAuthentication.RazorTargetAssemblyInfo.cache
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\ProjectAuthentication\ProjectAuthentication\bin\Debug\netcoreapp2.1\ProjectAuthentication.pdb
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\ProjectAuthentication\ProjectAuthentication\obj\Debug\netcoreapp2.1\ProjectAuthentication.dll
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\ProjectAuthentication\ProjectAuthentication\obj\Debug\netcoreapp2.1\ProjectAuthentication.pdb
