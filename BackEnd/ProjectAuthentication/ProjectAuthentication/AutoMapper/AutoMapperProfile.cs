@@ -12,9 +12,18 @@ namespace ProjectAuthentication.AutoMapper
     {
         public AutoMapperProfile()
         {
-            CreateMap<TblBook, BookListDto>();
-            CreateMap<LoginDto, TblUser>();
-            CreateMap<RegisterDto, TblUser>();
+            CreateMap<TblBook, BookListDto>()
+                .ForMember(c => c.Title, s => s.MapFrom(b => b.Title))
+                .ForMember(c => c.Description, s => s.MapFrom(b => b.Description)).ReverseMap();
+
+            CreateMap<LoginDto, TblUser>()
+                .ForMember(c => c.Email, s => s.MapFrom(b => b.Email))
+                .ForMember(c => c.Password, s => s.MapFrom(b => b.Password)).ReverseMap();
+
+            CreateMap<RegisterDto, TblUser>()
+                .ForMember(c => c.Email, s => s.MapFrom(b => b.Email))
+                .ForMember(c => c.Password, s => s.MapFrom(b => b.Password))
+                .ForMember(c => c.FullName, s => s.MapFrom(b => b.FullName)).ReverseMap();
         }
     }
 }

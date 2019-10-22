@@ -25,7 +25,7 @@ namespace ProjectAuthentication.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=localhost;Database=BookStore;Trusted_Connection=True;User Id=SAWLUZ/matheus.andrade;Integrated Secutiry=false;");
+                optionsBuilder.UseSqlServer("Server=localhost; Database=BookStore; Integrated Security=True;");
             }
         }
 

@@ -7,5 +7,7 @@ namespace ProjectAuthentication.Dtos
 {
     public class BookListDto
     {
+        public string Title { get; set; }
+        public string Description { get; set; }
     }
 }
