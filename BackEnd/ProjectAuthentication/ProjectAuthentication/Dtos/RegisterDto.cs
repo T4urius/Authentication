@@ -9,7 +9,7 @@ namespace ProjectAuthentication.Dtos
     public class RegisterDto
     {
         [Required]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Email deve ter no mínimo 3 caracteres")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Nome deve ter no mínimo 3 caracteres")]
         public string FullName { get; set; }
         [Required]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Email deve ter no mínimo 3 caracteres")]
