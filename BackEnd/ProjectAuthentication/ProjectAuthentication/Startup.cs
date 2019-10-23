@@ -88,18 +88,6 @@ namespace ProjectAuthentication
                 };
             });
 
-            //services.AddAuthorization(options =>
-            //{
-            //    options.AddPolicy(
-            //        "ServiceCenterAuditor",
-            //        policy =>
-            //        {
-            //            policy.RequireAssertion(context => 
-            //            context.User.HasClaim("ValidJWT", string.Empty) && 
-            //            context.User.HasClaim(ClaimTypes.Role, SharedConstants.SCAuditorRole))
-            //        })
-            //});
-
             //Utilizando repository
             services.AddScoped<IAuthRepository, AuthRepository>();
 

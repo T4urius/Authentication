@@ -88,7 +88,7 @@ namespace ProjectAuthentication.Models
                 entity.Property(e => e.Salt)
                 .HasMaxLength(128);
 
-                entity.Property(e => e.Admin)
+                entity.Property(e => e.Role)
                 .HasMaxLength(16);
             });
         }

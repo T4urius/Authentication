@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ProjectAuthentication.Entities;
 using ProjectAuthentication.Models;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ProjectAuthentication.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class BookController : ControllerBase
@@ -27,6 +28,9 @@ namespace ProjectAuthentication.Controllers
             var data = await _context.TblBook.ToListAsync();
             if (data == null)
                 return NotFound();
+
+            if (!User.IsInRole(Role.Admin))
+                return Forbid();
 
             return Ok(data);
         }

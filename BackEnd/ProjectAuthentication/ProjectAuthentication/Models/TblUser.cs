@@ -13,6 +13,6 @@ namespace ProjectAuthentication.Models
         public byte[] Password { get; set; }
         public byte[] Salt { get; set; }
 
-        public string Admin { get; set; }
+        public string Role { get; set; }
     }
 }
