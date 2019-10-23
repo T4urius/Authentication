@@ -16,6 +16,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using ProjectAuthentication.AutoMapper;
+using ProjectAuthentication.Helpers;
 using ProjectAuthentication.Models;
 using ProjectAuthentication.Repositories;
 using ProjectAuthentication.Repositories.Contract;
@@ -36,10 +37,7 @@ namespace ProjectAuthentication
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper();
-
-            //Utilizando repository
-            services.AddScoped<IAuthRepository, AuthRepository>();
-
+            
             //Conexão BD
             services.AddDbContext<BookStoreContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SQLConnection")));
 
@@ -64,17 +62,46 @@ namespace ProjectAuthentication
             //Cors
             services.AddCors();
 
+            var appSettingsSection = Configuration.GetSection("AppSettings");
+            services.Configure<AppSettings>(appSettingsSection);
+
+            var appSettings = appSettingsSection.Get<AppSettings>();
+            var key = Encoding.ASCII.GetBytes(appSettings.Secret);
+
             //JWT
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            services.AddAuthentication(x =>
             {
-                options.TokenValidationParameters = new TokenValidationParameters
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration.GetSection("AppSettings:Token").Value)),
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
                     ValidateIssuer = false,
                     ValidateAudience = false
                 };
             });
+
+            //Utilizando repository
+            services.AddScoped<IAuthRepository, AuthRepository>();
+
+            //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            //    .AddJwtBearer(options =>
+            //{
+            //    options.TokenValidationParameters = new TokenValidationParameters
+            //    {
+            //        ValidateIssuerSigningKey = true,
+            //        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII
+            //        .GetBytes(Configuration.GetSection("AppSettings:Token").Value)),
+            //        ValidateIssuer = false,
+            //        ValidateAudience = false
+            //    };
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
