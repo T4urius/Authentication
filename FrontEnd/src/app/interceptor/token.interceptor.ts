@@ -22,14 +22,14 @@ export class TokenInterceptor implements HttpInterceptor {
         if (token) {
             request = request.clone({
                 setHeaders: {
-                    'Authorization': 'Bearer' + token
+                    Authorization: `Bearer ${token}`
                 }
             });
         }
         if (!request.headers.has('Content-Type')) {
             request = request.clone({
                 setHeaders: {
-                    'content-type': 'application/json'
+                    'Content-Type': 'application/json; charset=utf-8'
                 }
             });
         }

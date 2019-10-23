@@ -8,11 +8,9 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class AuthService {
 
-  apiUrl = 'https://localhost:44348/api/auth'
+  apiUrl = 'https://localhost:44348/api/auth';
 
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private http: HttpClient) { }
 
   login(data: any): Observable<any> {
     return this.http.post<any>(this.apiUrl + '/login', data)
@@ -25,8 +23,8 @@ export class AuthService {
   register(data: any): Observable<any> {
     return this.http.post<any>(this.apiUrl + '/register', data)
       .pipe(
-        tap(_ => this.log('login')),
-        catchError(this.handleError('login', []))
+        tap(_ => this.log('register')),
+        catchError(this.handleError('register', []))
       );
   }
 
