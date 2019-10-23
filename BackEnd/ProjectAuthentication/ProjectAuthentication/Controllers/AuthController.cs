@@ -18,8 +18,8 @@ using System.Threading.Tasks;
 
 namespace ProjectAuthentication.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
         private readonly IAuthRepository _authRepository;

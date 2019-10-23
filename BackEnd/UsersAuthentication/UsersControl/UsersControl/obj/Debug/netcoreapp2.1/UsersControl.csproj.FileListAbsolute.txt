@@ -1,0 +1,16 @@
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\UsersAuthentication\UsersControl\UsersControl\bin\Debug\netcoreapp2.1\appsettings.Development.json
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\UsersAuthentication\UsersControl\UsersControl\bin\Debug\netcoreapp2.1\appsettings.json
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\UsersAuthentication\UsersControl\UsersControl\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\UsersAuthentication\UsersControl\UsersControl\bin\Debug\netcoreapp2.1\UsersControl.deps.json
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\UsersAuthentication\UsersControl\UsersControl\bin\Debug\netcoreapp2.1\UsersControl.runtimeconfig.json
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\UsersAuthentication\UsersControl\UsersControl\bin\Debug\netcoreapp2.1\UsersControl.runtimeconfig.dev.json
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\UsersAuthentication\UsersControl\UsersControl\bin\Debug\netcoreapp2.1\UsersControl.dll
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\UsersAuthentication\UsersControl\UsersControl\obj\Debug\netcoreapp2.1\UsersControl.csprojAssemblyReference.cache
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\UsersAuthentication\UsersControl\UsersControl\obj\Debug\netcoreapp2.1\UsersControl.RazorAssemblyInfo.cache
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\UsersAuthentication\UsersControl\UsersControl\obj\Debug\netcoreapp2.1\UsersControl.RazorAssemblyInfo.cs
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\UsersAuthentication\UsersControl\UsersControl\obj\Debug\netcoreapp2.1\UsersControl.AssemblyInfoInputs.cache
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\UsersAuthentication\UsersControl\UsersControl\obj\Debug\netcoreapp2.1\UsersControl.AssemblyInfo.cs
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\UsersAuthentication\UsersControl\UsersControl\obj\Debug\netcoreapp2.1\UsersControl.RazorTargetAssemblyInfo.cache
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\UsersAuthentication\UsersControl\UsersControl\bin\Debug\netcoreapp2.1\UsersControl.pdb
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\UsersAuthentication\UsersControl\UsersControl\obj\Debug\netcoreapp2.1\UsersControl.dll
+C:\Users\matheus.andrade\Documents\Saw\Autenticação\BackEnd\UsersAuthentication\UsersControl\UsersControl\obj\Debug\netcoreapp2.1\UsersControl.pdb

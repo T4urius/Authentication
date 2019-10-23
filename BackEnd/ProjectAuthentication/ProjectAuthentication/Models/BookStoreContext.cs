@@ -33,6 +33,8 @@ namespace ProjectAuthentication.Models
         {
             modelBuilder.Entity<TblBook>(entity =>
             {
+                entity.ToTable("Book");
+
                 entity.HasKey(e => e.BookId);
 
                 entity.Property(e => e.BookId)
@@ -52,7 +54,7 @@ namespace ProjectAuthentication.Models
                 .HasColumnName("ISBN");
 
                 entity.Property(e => e.Price)
-                .HasColumnName("decimal(18,0)");
+                .HasColumnName("Price");
 
                 entity.Property(e => e.Publisher)
                 .HasMaxLength(50)
@@ -65,6 +67,8 @@ namespace ProjectAuthentication.Models
 
             modelBuilder.Entity<TblUser>(entity =>
             {
+                entity.ToTable("TblUser");
+
                 entity.HasKey(e => e.UserId);
 
                 entity.Property(e => e.UserId)
