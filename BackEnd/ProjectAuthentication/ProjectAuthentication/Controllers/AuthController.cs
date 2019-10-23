@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
@@ -18,19 +19,18 @@ using System.Threading.Tasks;
 
 namespace ProjectAuthentication.Controllers
 {
+    //[Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
         private readonly IAuthRepository _authRepository;
-        private readonly IConfiguration _configuration;
         private readonly IMapper _mapper;
         private readonly AppSettings _appSettings;
 
-        public AuthController(IAuthRepository authRepository, IConfiguration configuration, IMapper mapper, IOptions<AppSettings> appSettings)
+        public AuthController(IAuthRepository authRepository, IMapper mapper, IOptions<AppSettings> appSettings)
         {
             _authRepository = authRepository;
-            _configuration = configuration;
             _mapper = mapper;
             _appSettings = appSettings.Value;
         }
@@ -40,6 +40,7 @@ namespace ProjectAuthentication.Controllers
         /// </summary>
         /// <param name="registerDto"></param>
         /// <returns></returns>
+        //[AllowAnonymous]
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterDto registerDto)
         {
@@ -57,6 +58,7 @@ namespace ProjectAuthentication.Controllers
         /// </summary>
         /// <param name="loginDto"></param>
         /// <returns></returns>
+        //[AllowAnonymous]
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginDto loginDto)
         {
