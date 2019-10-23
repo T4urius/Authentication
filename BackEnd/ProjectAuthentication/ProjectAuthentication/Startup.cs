@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -86,6 +87,18 @@ namespace ProjectAuthentication
                     ValidateAudience = false
                 };
             });
+
+            //services.AddAuthorization(options =>
+            //{
+            //    options.AddPolicy(
+            //        "ServiceCenterAuditor",
+            //        policy =>
+            //        {
+            //            policy.RequireAssertion(context => 
+            //            context.User.HasClaim("ValidJWT", string.Empty) && 
+            //            context.User.HasClaim(ClaimTypes.Role, SharedConstants.SCAuditorRole))
+            //        })
+            //});
 
             //Utilizando repository
             services.AddScoped<IAuthRepository, AuthRepository>();

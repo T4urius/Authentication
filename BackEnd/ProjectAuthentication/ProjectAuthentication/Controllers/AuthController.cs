@@ -65,16 +65,7 @@ namespace ProjectAuthentication.Controllers
             if (userFromRepo == null)
                 return Unauthorized();
 
-            var claims = new[]
-            {
-                new Claim(ClaimTypes.NameIdentifier, userFromRepo.UserId.ToString()),
-                new Claim(ClaimTypes.Name, userFromRepo.Email)
-            };
-
             var key = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_appSettings.Secret));
-            
-            //var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
-            //var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
@@ -90,12 +81,6 @@ namespace ProjectAuthentication.Controllers
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
             userFromRepo.Password = null;
-
-            //var jwt = tokenHandler.WriteToken(token);
-            //string[] parts = jwt.Split(".".ToCharArray());
-            //var header = parts[0];
-            //var payload = parts[1];
-            //var signature = parts[2];
 
             return Ok(new { token = tokenHandler.WriteToken(token), email = userFromRepo.Email, fullname = userFromRepo.FullName });
         }
