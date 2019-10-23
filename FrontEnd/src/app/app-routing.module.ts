@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { BookComponent } from './book/book.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,13 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent,
     data: { title: 'Register' }
-  }
+  },
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
