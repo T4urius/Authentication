@@ -4,6 +4,7 @@ import { BookComponent } from './book/book.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ControllAccessComponent } from './auth/controll-access/controll-access.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,11 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent,
     data: { title: 'Register' }
+  },
+  {
+    path: 'controllAccess',
+    component: ControllAccessComponent,
+    data: { title: 'Controle de Acesso' }
   },
   {
     path: '',

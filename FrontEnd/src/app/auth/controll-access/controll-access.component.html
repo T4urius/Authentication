@@ -1,0 +1,8 @@
+<div>
+    <div>
+        <mat-checkbox [(ngModel)]="isChecked" (change)="checkValue(isChecked ? 'Admin' : 'User')"
+            >Tornar admin para ver
+            table</mat-checkbox>
+    </div>
+    <a mat-flat-button color="primary" (click)="salvar()">Salvar</a>
+</div>
