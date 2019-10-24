@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectAuthentication.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class BookController : ControllerBase
@@ -23,11 +23,12 @@ namespace ProjectAuthentication.Controllers
         public async Task<IActionResult> GetBooks()
         {
             var data = await _context.TblBook.ToListAsync();
+
             if (data == null)
                 return NotFound();
 
-            if (!User.IsInRole(Role.Admin))
-                return Forbid();
+            //if (!User.IsInRole(Role.Admin))
+            //    return Forbid();
 
             return Ok(data);
         }

@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace ProjectAuthentication.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
@@ -36,7 +36,7 @@ namespace ProjectAuthentication.Controllers
         /// </summary>
         /// <param name="registerDto"></param>
         /// <returns></returns>
-        [AllowAnonymous]
+        //[AllowAnonymous]
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterDto registerDto)
         {
@@ -54,7 +54,7 @@ namespace ProjectAuthentication.Controllers
         /// </summary>
         /// <param name="loginDto"></param>
         /// <returns></returns>
-        [AllowAnonymous]
+        //[AllowAnonymous]
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginDto loginDto)
         {
