@@ -28,14 +28,12 @@ export class ControllAccessComponent implements OnInit {
   }
 
   alterarRole() {
-    debugger;
     let email = localStorage.getItem('email');
     if (this.isChecked == true) {
       localStorage.setItem('role', 'Admin');
       let role = localStorage.getItem('role');
 
       let data = { role, email };
-      console.log(data);
       this.userService.alterar(data)
         .subscribe(() => {
           this.router.navigate(['book']);
@@ -46,7 +44,6 @@ export class ControllAccessComponent implements OnInit {
       let role = localStorage.getItem('role');
 
       let data = { role, email };
-      console.log(data);
       this.userService.alterar(data)
         .subscribe(() => {
           this.router.navigate(['book']);

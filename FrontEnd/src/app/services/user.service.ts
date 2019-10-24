@@ -19,19 +19,17 @@ export class UserService {
             }
         })
             .pipe(
-                tap(_ => this.log('user')),
-                catchError(this.handleError('getUser', []))
+                tap(_ => this.log('Usuário recuperado com sucesso!')),
+                catchError(this.handleError('Erro ao recuperar usuário!', []))
             );
     }
 
     alterar(data: any): Observable<any> {
-        debugger;
-        console.log(data);
         return this.http.put<any>(this.apiUrl + '/alterar', data)
             .pipe(
-                tap(_ => this.log('role')),
+                tap(_ => this.log('Alterado role com sucesso!')),
 
-                catchError(this.handleError('role', []))
+                catchError(this.handleError('Erro ao alterar role!', []))
             );
     }
 

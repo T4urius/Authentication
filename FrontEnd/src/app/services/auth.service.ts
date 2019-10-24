@@ -15,16 +15,16 @@ export class AuthService {
   login(data: any): Observable<any> {
     return this.http.post<any>(this.apiUrl + '/login', data)
       .pipe(
-        tap(_ => this.log('login')),
-        catchError(this.handleError('login', []))
+        tap(_ => this.log('Login realizado com sucesso!')),
+        catchError(this.handleError('Erro ao realizar login!', []))
       );
   }
 
   register(data: any): Observable<any> {
     return this.http.post<any>(this.apiUrl + '/register', data)
       .pipe(
-        tap(_ => this.log('register')),
-        catchError(this.handleError('register', []))
+        tap(_ => this.log('Registro realizado com sucesso!')),
+        catchError(this.handleError('Erro ao tentar realizar registro!', []))
       );
   }
 
