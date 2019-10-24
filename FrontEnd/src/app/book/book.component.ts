@@ -30,7 +30,6 @@ export class BookComponent implements OnInit {
 
   //Retorna se sou administrador ou não
   get isAdmin() {
-    debugger;
     return this.role == "Admin";
   }
 
