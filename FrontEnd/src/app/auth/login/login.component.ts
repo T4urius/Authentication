@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
         this.userService.getUser(res.email)
           .subscribe(res => {
             localStorage.setItem('role', res.role);
+            localStorage.setItem('email', res.email);
           })
       }, (err) => {
         console.log(err);

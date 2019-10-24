@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-controll-access',
@@ -9,15 +11,15 @@ import { Router } from '@angular/router';
 export class ControllAccessComponent implements OnInit {
 
   isChecked: boolean;
+  role = localStorage.getItem('role');
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
   }
 
   ngAfterContentInit() {
-    let role = localStorage.getItem('role');
-    if (role == 'Admin') {
+    if (this.role == 'Admin') {
       this.isChecked = true;
     }
     else {
@@ -25,13 +27,30 @@ export class ControllAccessComponent implements OnInit {
     }
   }
 
-  salvar() {
-    this.router.navigate(['book']);
+  alterarRole() {
+    debugger;
+    let email = localStorage.getItem('email');
     if (this.isChecked == true) {
       localStorage.setItem('role', 'Admin');
+      let role = localStorage.getItem('role');
+
+      let data = { role, email };
+      console.log(data);
+      this.userService.alterar(data)
+        .subscribe(() => {
+          this.router.navigate(['book']);
+        });
     }
     else {
       localStorage.setItem('role', 'User');
+      let role = localStorage.getItem('role');
+
+      let data = { role, email };
+      console.log(data);
+      this.userService.alterar(data)
+        .subscribe(() => {
+          this.router.navigate(['book']);
+        });
     }
   }
 

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { User } from '../auth/user';
 
 @Injectable({
     providedIn: 'root'
@@ -22,6 +21,17 @@ export class UserService {
             .pipe(
                 tap(_ => this.log('user')),
                 catchError(this.handleError('getUser', []))
+            );
+    }
+
+    alterar(data: any): Observable<any> {
+        debugger;
+        console.log(data);
+        return this.http.put<any>(this.apiUrl + '/alterar', data)
+            .pipe(
+                tap(_ => this.log('role')),
+
+                catchError(this.handleError('role', []))
             );
     }
 

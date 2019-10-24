@@ -1,8 +1,7 @@
 <div>
     <div>
-        <mat-checkbox [(ngModel)]="isChecked" (change)="checkValue(isChecked ? 'Admin' : 'User')"
-            >Tornar admin para ver
+        <mat-checkbox [(ngModel)]="isChecked" (change)="checkValue(isChecked ? 'Admin' : 'User')">Tornar admin para ver
             table</mat-checkbox>
     </div>
-    <a mat-flat-button color="primary" (click)="salvar()">Salvar</a>
+    <a mat-flat-button color="primary" (click)="alterarRole()">Salvar</a>
 </div>

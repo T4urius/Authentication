@@ -24,6 +24,7 @@ import {
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ControllAccessComponent } from './auth/controll-access/controll-access.component';
+import { User } from './auth/user';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { ControllAccessComponent } from './auth/controll-access/controll-access.
     MatCheckboxModule,
   ],
   providers: [
+    User,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

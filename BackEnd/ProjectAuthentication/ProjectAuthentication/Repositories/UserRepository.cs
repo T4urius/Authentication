@@ -25,5 +25,14 @@ namespace ProjectAuthentication.Repositories
 
             return user;
         }
+
+        public async Task<TblUser> AlterarPermissao(TblUser user, string role)
+        {
+            user.Role = role;
+            _context.TblUser.Update(user);
+            await _context.SaveChangesAsync();
+
+            return user;
+        }
     }
 }
