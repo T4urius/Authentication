@@ -30,6 +30,7 @@ export class BookComponent implements OnInit {
 
   //Retorna se sou administrador ou não
   get isAdmin() {
+    debugger;
     return this.role == "Admin";
   }
 
@@ -47,6 +48,7 @@ export class BookComponent implements OnInit {
 
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('email');
     localStorage.removeItem('role');
     this.router.navigate(['login']);
   }

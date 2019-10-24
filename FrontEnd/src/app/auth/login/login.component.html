@@ -7,16 +7,16 @@
             <mat-form-field class="example-full-width">
                 <input matInput type="email" placeholder="Email" formControlName="email" [errorStateMatcher]="matcher">
                 <mat-error>
-                    <span *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched">Please enter your
-                        email</span>
+                    <span *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched">Por favor digite seu
+                        e-mail</span>
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width">
                 <input matInput type="password" placeholder="Password" formControlName="password"
                     [errorStateMatcher]="matcher">
                 <mat-error>
-                    <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Please enter
-                        your password</span>
+                    <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Por favor digite
+                        sua senha</span>
                 </mat-error>
             </mat-form-field>
             <div class="button-row">

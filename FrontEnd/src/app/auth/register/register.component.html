@@ -5,30 +5,30 @@
     <mat-card class="example-card">
         <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit(registerForm.value)">
             <mat-form-field class="example-full-width">
-                <input matInput type="fullName" placeholder="Full Name" formControlName="fullName"
+                <input matInput type="fullName" placeholder="Nome completo" formControlName="fullName"
                     [errorStateMatcher]="matcher">
                 <mat-error>
-                    <span *ngIf="!registerForm.get('fullName').valid && registerForm.get('fullName').touched">Please
-                        enter your Full Name</span>
+                    <span *ngIf="!registerForm.get('fullName').valid && registerForm.get('fullName').touched">Por favor,
+                        digite seu nome completo</span>
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width">
                 <input matInput type="email" placeholder="Email" formControlName="email" [errorStateMatcher]="matcher">
                 <mat-error>
-                    <span *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched">Please enter
-                        your email</span>
+                    <span *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched">Por favor,
+                        digite seu e-mail</span>
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width">
                 <input matInput type="password" placeholder="Password" formControlName="password"
                     [errorStateMatcher]="matcher">
                 <mat-error>
-                    <span *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched">Please
-                        enter your password</span>
+                    <span *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched">Por favor,
+                        digite sua senha</span>
                 </mat-error>
             </mat-form-field>
             <div class="button-row">
-                <button type="submit" [disabled]="!registerForm.valid" mat-flat-button color="primary">Register</button>
+                <button type="submit" [disabled]="!registerForm.valid" mat-flat-button color="primary">Registrar</button>
             </div>
         </form>
     </mat-card>

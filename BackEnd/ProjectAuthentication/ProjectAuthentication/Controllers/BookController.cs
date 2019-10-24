@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectAuthentication.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class BookController : ControllerBase

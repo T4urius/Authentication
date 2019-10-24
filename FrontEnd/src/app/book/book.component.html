@@ -4,9 +4,9 @@
     </div>
     <div class="button-row">
         <a mat-flat-button color="primary" (click)="logout()">Logout</a>
-        <a mat-flat-button color="warn" (click)="controllAccess()">Definir acesso de usuários</a>
+        <a mat-flat-button color="warn" *ngIf="isAdmin" (click)="controllAccess()">Definir acesso de usuários</a>
     </div>
-    <div *ngIf="isAdmin" class="mat-elevation-z8">
+    <div class="mat-elevation-z8">
         <table mat-table [dataSource]="data" class="example-table">
 
             <!-- Book ID Column -->

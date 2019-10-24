@@ -13,6 +13,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(data: any): Observable<any> {
+    debugger;
     return this.http.post<any>(this.apiUrl + '/login', data)
       .pipe(
         tap(_ => this.log('Login realizado com sucesso!')),

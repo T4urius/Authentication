@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProjectAuthentication.Dtos;
 using ProjectAuthentication.Models;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjectAuthentication.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
@@ -22,6 +23,7 @@ namespace ProjectAuthentication.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetUser([FromQuery] UserDto userDto)
         {
             var data = await _userRepository.ObterUsuario(userDto.Email);
