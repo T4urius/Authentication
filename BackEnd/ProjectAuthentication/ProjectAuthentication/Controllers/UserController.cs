@@ -21,7 +21,7 @@ namespace ProjectAuthentication.Controllers
         [HttpGet]
         public async Task<IActionResult> GetUser([FromQuery] UserDto userDto)
         {
-            var data = await _userRepository.ObterUsuario(userDto.IdUser);
+            var data = await _userRepository.ObterUsuario(userDto.Email);
 
             if (data == null)
                 return NotFound();
@@ -29,7 +29,7 @@ namespace ProjectAuthentication.Controllers
             //if (!User.IsInRole(Role.Admin))
             //    return Forbid();
 
-            return StatusCode(201, new { data.Email, data.FullName } );
+            return StatusCode(201, new { data.UserId, data.Email, data.FullName, data.Role } );
         }
     }
 }

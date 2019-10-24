@@ -18,7 +18,8 @@ import {
   MatIconModule,
   MatButtonModule,
   MatCardModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatCheckboxModule,
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -47,6 +48,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
+    MatCheckboxModule,
   ],
   providers: [
     {

@@ -3,6 +3,7 @@ import { BookService } from '../services/book.service';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { Book } from './book';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-book',
@@ -16,11 +17,29 @@ export class BookComponent implements OnInit {
   data: Book[] = [];
   displayedColumns: string[] = ['bookId', 'isbn', 'title'];
   isLoadingResults = true;
+  is: string;
+  role: string = localStorage.getItem('role');
 
+  //Lifecycle primeiro carregamento da página
   ngOnInit() {
+
+  }
+
+  //Lifecyle carregamento de componentes internos
+  ngAfterContentInit() {
     this.getBooks();
   }
 
+  //Retorna se sou administrador ou não
+  get isAdmin() {
+    return this.role = this.is;
+  }
+
+  checkValue(event: any) {
+    this.is = event;
+  }
+
+  //Chama o serviço que retorna a lista de livros
   async getBooks() {
     this.bookService.getBooks()
       .subscribe(books => {
@@ -35,6 +54,7 @@ export class BookComponent implements OnInit {
 
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('role');
     this.router.navigate(['login']);
   }
 

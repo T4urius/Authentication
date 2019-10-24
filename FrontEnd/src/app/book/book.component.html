@@ -4,8 +4,9 @@
     </div>
     <div class="button-row">
         <a mat-flat-button color="primary" (click)="logout()">Logout</a>
+        <mat-checkbox [(ngModel)]="isChecked" (change)="checkValue(isChecked?true:false)">Tornar admin para ver table</mat-checkbox>
     </div>
-    <div class="mat-elevation-z8">
+    <div *ngIf="isAdmin" class="mat-elevation-z8">
         <table mat-table [dataSource]="data" class="example-table">
 
             <!-- Book ID Column -->

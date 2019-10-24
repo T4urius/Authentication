@@ -8,6 +8,6 @@ namespace ProjectAuthentication.Repositories.Contract
 {
     public interface IUserRepository
     {
-        Task<TblUser> ObterUsuario(int id); 
+        Task<TblUser> ObterUsuario(string email); 
     }
 }

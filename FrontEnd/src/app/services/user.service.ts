@@ -13,8 +13,12 @@ export class UserService {
 
     constructor(private http: HttpClient) { }
 
-    getUser(id: number): Observable<User[]> {
-        return this.http.get<User[]>(this.apiUrl + '/' + id)
+    getUser(email: any): Observable<any> {
+        return this.http.get<any>(this.apiUrl, {
+            params: {
+                email
+            }
+        })
             .pipe(
                 tap(_ => this.log('user')),
                 catchError(this.handleError('getUser', []))

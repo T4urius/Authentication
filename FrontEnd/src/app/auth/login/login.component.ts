@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, NgForm, FormGroupDirective, FormCon
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   isLoadingResults = false;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService, private userService: UserService) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -34,6 +35,11 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token', res.token);
           this.router.navigate(['book']);
         }
+        //armazenando role
+        this.userService.getUser(res.email)
+          .subscribe(res => {
+            localStorage.setItem('role', res.role);
+          })
       }, (err) => {
         console.log(err);
       });
