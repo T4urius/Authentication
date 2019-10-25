@@ -17,10 +17,11 @@ export class BookComponent implements OnInit {
   displayedColumns: string[] = ['bookId', 'isbn', 'title'];
   isLoadingResults = true;
   is: string;
-  role: string = localStorage.getItem('role');
+  role: string;
 
   //Lifecycle primeiro carregamento da página
   ngOnInit() {
+    this.role = localStorage.getItem('role');
   }
 
   // //Lifecyle carregamento de componentes internos

@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   password = '';
   matcher = new MyErrorStateMatcher();
   isLoadingResults = false;
+  error: string;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService, private userService: UserService) { }
 
@@ -29,17 +30,23 @@ export class LoginComponent implements OnInit {
 
   onFormSubmit(form: NgForm) {
     this.authService.login(form)
-      .subscribe(res => {
-        if (res.token) {
-          localStorage.setItem('token', res.token);
-          this.router.navigate(['book']);
-        }
+      .subscribe(resp => {
         //armazenando role
-        this.userService.getUser(res.email)
+        this.userService.getUser(resp.email)
           .subscribe(res => {
-            localStorage.setItem('role', res.role);
-            localStorage.setItem('email', res.email);
-          })
+            if (resp.email == null || undefined) {
+              this.error = 'E-mail ou senha incorretos, favor digitar novamente!';
+            }
+            else {
+              localStorage.setItem('role', res.role);
+              localStorage.setItem('email', res.email);
+
+              if (resp.token) {
+                localStorage.setItem('token', resp.token);
+                this.router.navigate(['book']);
+              }
+            }
+          });
       }, (err) => {
         console.log(err);
       });

@@ -10,8 +10,13 @@ import { User } from '../user';
 })
 export class ControllAccessComponent implements OnInit {
 
+  data: User[] = [];
+  displayedColumns: string[] = ['userId', 'fullName', 'role'];
+  isLoadingResults = true;
   isChecked: boolean;
   role = localStorage.getItem('role');
+  emailStorage = localStorage.getItem('email');
+  currentUser: any;
 
   constructor(private router: Router, private userService: UserService) { }
 
@@ -25,6 +30,27 @@ export class ControllAccessComponent implements OnInit {
     else {
       this.isChecked = false;
     }
+    this.getUsers();
+  }
+
+  ngAfterContentChecked() {
+    let i = this.data;
+    // console.log(i.find(e => e.Email == this.emailStorage));
+  }
+
+  getUsers() {
+    this.userService.getAll()
+      .subscribe(users => {
+        this.data = users;
+        this.isLoadingResults = false;
+        this.currentUser = this.data.find(d => d.email === this.emailStorage);
+        if (this.currentUser != null) {
+
+        }
+
+      }, err => {
+        this.isLoadingResults = false;
+      });
   }
 
   alterarRole() {
@@ -32,7 +58,6 @@ export class ControllAccessComponent implements OnInit {
     if (this.isChecked == true) {
       localStorage.setItem('role', 'Admin');
       let role = localStorage.getItem('role');
-
       let data = { role, email };
       this.userService.alterar(data)
         .subscribe(() => {
@@ -42,7 +67,6 @@ export class ControllAccessComponent implements OnInit {
     else {
       localStorage.setItem('role', 'User');
       let role = localStorage.getItem('role');
-
       let data = { role, email };
       this.userService.alterar(data)
         .subscribe(() => {

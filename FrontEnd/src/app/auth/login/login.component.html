@@ -19,6 +19,7 @@
                         sua senha</span>
                 </mat-error>
             </mat-form-field>
+            <span style="font-size: smaller;color: red;">{{error}}</span>
             <div class="button-row">
                 <button type="submit" [disabled]="!loginForm.valid" mat-flat-button color="primary">Login</button>
             </div>

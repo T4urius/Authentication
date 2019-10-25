@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { User } from '../auth/user';
 
 @Injectable({
     providedIn: 'root'
@@ -11,6 +12,14 @@ export class UserService {
     apiUrl = 'https://localhost:44348/api/user';
 
     constructor(private http: HttpClient) { }
+
+    getAll(): Observable<User[]> {
+        return this.http.get<User[]>(this.apiUrl + '/todos')
+            .pipe(
+                tap(_ => this.log('Usuários retornados com sucesso!')),
+                catchError(this.handleError('Erro ao retornar usuários', []))
+            );
+    }
 
     getUser(email: any): Observable<any> {
         return this.http.get<any>(this.apiUrl, {

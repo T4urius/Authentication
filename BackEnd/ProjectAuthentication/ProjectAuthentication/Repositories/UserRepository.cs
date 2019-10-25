@@ -16,7 +16,7 @@ namespace ProjectAuthentication.Repositories
         {
             _context = context;
         }
-        public async Task<TblUser> ObterUsuario(string email)
+        public async Task<TblUser> ObterUsuarioPorEmail(string email)
         {
             var user = await _context.TblUser.FirstOrDefaultAsync(x => x.Email == email);
 

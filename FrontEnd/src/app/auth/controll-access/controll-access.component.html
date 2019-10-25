@@ -5,3 +5,27 @@
     </div>
     <a mat-flat-button color="primary" (click)="alterarRole()">Salvar</a>
 </div>
+
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="data" class="example-table">
+
+        <ng-container matColumnDef="userId">
+            <th mat-header-cell *matHeaderCellDef>ID do Usuário</th>
+            <td mat-cell *matCellDef="let row">{{row.userId}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="fullName">
+            <th mat-header-cell *matHeaderCellDef>Nome do Usuário</th>
+            <td mat-cell *matCellDef="let row">{{row.fullName}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="role">
+            <th mat-header-cell *matHeaderCellDef>Permissão do Usuário</th>
+            <td mat-cell *matCellDef="let row">{{row.role}}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
