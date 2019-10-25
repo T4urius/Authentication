@@ -31,15 +31,17 @@ export class LoginComponent implements OnInit {
   onFormSubmit(form: NgForm) {
     this.authService.login(form)
       .subscribe(resp => {
+        console.log(resp);
         //armazenando role
-        this.userService.getUser(resp.email)
+        this.userService.getUser(resp.userId)
           .subscribe(res => {
             if (resp.email == null || undefined) {
               this.error = 'E-mail ou senha incorretos, favor digitar novamente!';
             }
             else {
+              console.log(res);
               localStorage.setItem('role', res.role);
-              localStorage.setItem('email', res.email);
+              localStorage.setItem('id', res.idUser);
 
               if (resp.token) {
                 localStorage.setItem('token', resp.token);

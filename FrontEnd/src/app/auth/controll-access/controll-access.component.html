@@ -1,8 +1,5 @@
 <div>
-    <div>
-        <mat-checkbox [(ngModel)]="isChecked" (change)="checkValue(isChecked ? 'Admin' : 'User')">Tornar admin para ver
-            table</mat-checkbox>
-    </div>
+
     <a mat-flat-button color="primary" (click)="alterarRole()">Salvar</a>
 </div>
 
@@ -23,6 +20,19 @@
         <ng-container matColumnDef="role">
             <th mat-header-cell *matHeaderCellDef>Permissão do Usuário</th>
             <td mat-cell *matCellDef="let row">{{row.role}}</td>
+            <td>
+
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="checkRole">
+            <th math-header-cell *matHeaderCellDef>Tornar admin</th>
+            <td mat-cell *matCellDef="let row">
+                <div style="display: flex;justify-content: center;">
+                    <mat-checkbox id={{row.userId}} (change)="checkValue($event)">
+                    </mat-checkbox>
+                </div>
+            </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

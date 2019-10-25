@@ -8,7 +8,7 @@ namespace ProjectAuthentication.Repositories.Contract
 {
     public interface IUserRepository
     {
-        Task<TblUser> ObterUsuarioPorEmail(string email);
+        Task<TblUser> ObterUsuarioPorId(int id);
         Task<TblUser> AlterarPermissao(TblUser user, string role);
     }
 }

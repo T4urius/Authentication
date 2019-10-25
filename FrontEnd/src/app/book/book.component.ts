@@ -48,7 +48,7 @@ export class BookComponent implements OnInit {
 
   logout() {
     localStorage.removeItem('token');
-    localStorage.removeItem('email');
+    localStorage.removeItem('id');
     localStorage.removeItem('role');
     this.router.navigate(['login']);
   }

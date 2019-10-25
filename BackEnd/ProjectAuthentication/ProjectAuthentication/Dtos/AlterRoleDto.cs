@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 namespace ProjectAuthentication.Dtos
 {
     public class AlterRoleDto
-    {
+    {        
         public string Role { get; set; }
-        public string Email { get; set; }
+        public int IdUser { get; set; }
     }
 }

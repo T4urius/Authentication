@@ -27,9 +27,9 @@ namespace ProjectAuthentication.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> GetUserByEmail([FromQuery] UserDto userDto)
+        public async Task<IActionResult> GetUserById([FromQuery] UserDto userDto)
         {
-            var data = await _userRepository.ObterUsuarioPorEmail(userDto.Email);
+            var data = await _userRepository.ObterUsuarioPorId(userDto.IdUser);
 
             if (data == null)
                 return NotFound();
@@ -54,7 +54,7 @@ namespace ProjectAuthentication.Controllers
         [HttpPut("alterar")]
         public async Task<IActionResult> AlterRole(AlterRoleDto alterRoleDto)
         {
-            var data = await _userRepository.ObterUsuarioPorEmail(alterRoleDto.Email);
+            var data = await _userRepository.ObterUsuarioPorId(alterRoleDto.IdUser);
 
             if (data == null)
                 return NotFound();

@@ -46,7 +46,7 @@ namespace ProjectAuthentication.Controllers
 
             var userToCreate = _mapper.Map<TblUser>(registerDto);
             var createdUser = await _authRepository.Register(userToCreate, registerDto.Password);
-            return StatusCode(201, new { email = createdUser.Email, fullname = createdUser.FullName });
+            return StatusCode(201, new { idUser = createdUser.UserId, email = createdUser.Email, fullname = createdUser.FullName });
         }
 
         /// <summary>
