@@ -10,7 +10,7 @@ import { User } from '../user';
 })
 export class ControllAccessComponent implements OnInit {
 
-  displayedColumns: string[] = ['userId', 'fullName', 'role', 'checkFirstRole', 'checkSecondRole'];
+  displayedColumns: string[] = ['userId', 'fullName', 'role', 'checkRole'];
   idStorage = localStorage.getItem('id');
   idCheckbox: number[] = [];
   isLoadingResults = true;
@@ -48,19 +48,26 @@ export class ControllAccessComponent implements OnInit {
   }
 
   alterarRole() {
+    debugger;
+    let totalPart = this.idCheckbox.toString();
+    let p = totalPart.split(',', 3);
     for (let l = 0; l < this.idCheckbox.length; l++) {
-      let IdUser = this.idCheckbox.toString();
+      let part = p[l].slice(0 + l, 1 + l);
+      let IdUser = part[l].slice(0, 1);
+      let Role = part[l].slice(2, 7);
       if (this.isChecked) {
         this.roleData = {
           IdUser: IdUser,
-          Role: "Admin"
-        }
+          Role: Role
+        };
+        this.router.navigate(['book']);
       }
       else {
         this.roleData = {
           IdUser: IdUser,
-          Role: "User"
+          Role: Role
         };
+        this.router.navigate(['book']);
       }
       this.userService.alterar(this.roleData).subscribe(() => {
         console.log("Usuário alterado");
@@ -69,9 +76,10 @@ export class ControllAccessComponent implements OnInit {
   }
 
   checkValue(event: any) {
+    console.log(event);
     this.isChecked = event.checked;
-    if (event.checked) {
-      this.idCheckbox.push(event.source.id);
+    if (event.source._checked) {
+      this.idCheckbox.push(event.source._value);
     }
     else {
       this.idCheckbox.pop();

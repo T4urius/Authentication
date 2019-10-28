@@ -25,22 +25,18 @@
             </td>
         </ng-container>
 
-        <ng-container matColumnDef="checkFirstRole">
+        <ng-container matColumnDef="checkRole">
             <th math-header-cell *matHeaderCellDef>Tornar admin</th>
             <td mat-cell *matCellDef="let row">
                 <div style="display: flex;justify-content: center;">
-                    <mat-checkbox id="{{row.userId}}" (change)="checkValue($event)">
-                    </mat-checkbox>
-                </div>
-            </td>
-        </ng-container>
-
-        <ng-container matColumnDef="checkSecondRole">
-            <th math-header-cell *matHeaderCellDef>Tornar user</th>
-            <td mat-cell *matCellDef="let row">
-                <div style="display: flex;justify-content: center;">
-                    <mat-checkbox id="{{row.userId}}" (change)="checkValue($event)">
-                    </mat-checkbox>
+                    <mat-radio-group aria-label="Select an option">
+                        <mat-radio-button (change)="checkValue($event)" value="{{row.userId}}/Admin">Admin
+                        </mat-radio-button>
+                        <mat-radio-button (change)=" checkValue($event)" value="{{row.userId}}/User">User
+                        </mat-radio-button>
+                    </mat-radio-group>
+                    <!-- <mat-checkbox id="{{row.userId}}" (change)="checkValue($event)">
+                    </mat-checkbox> -->
                 </div>
             </td>
         </ng-container>

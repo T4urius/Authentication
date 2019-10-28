@@ -22,6 +22,7 @@ import {
   MatCheckboxModule,
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatRadioModule } from '@angular/material/radio';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ControllAccessComponent } from './auth/controll-access/controll-access.component';
 import { User } from './auth/user';
@@ -52,6 +53,8 @@ import { User } from './auth/user';
     FormsModule,
     ReactiveFormsModule,
     MatCheckboxModule,
+    MatRadioModule,
+
   ],
   providers: [
     User,
