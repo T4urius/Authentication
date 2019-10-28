@@ -12,13 +12,12 @@ export class ControllAccessComponent implements OnInit {
 
   displayedColumns: string[] = ['userId', 'fullName', 'role', 'checkFirstRole', 'checkSecondRole'];
   idStorage = localStorage.getItem('id');
+  idCheckbox: number[] = [];
   isLoadingResults = true;
   data: User[] = [];
-  roleData: any;
   currentUser: any;
-  idCheckbox: number[] = [];
   isChecked: any;
-  checkRole: boolean;
+  roleData: any;
   isAdmin: any;
   adminId: any;
   userId: any;
@@ -46,7 +45,6 @@ export class ControllAccessComponent implements OnInit {
   }
 
   alterarRole() {
-    debugger;
     for (let l = 0; l < this.idCheckbox.length; l++) {
       let IdUser = this.idCheckbox.toString();
       if (this.isChecked) {
