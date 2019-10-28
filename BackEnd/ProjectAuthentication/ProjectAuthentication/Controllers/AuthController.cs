@@ -81,7 +81,7 @@ namespace ProjectAuthentication.Controllers
 
             userFromRepo.Password = null;
 
-            return Ok(new { token = tokenHandler.WriteToken(token), email = userFromRepo.Email, fullname = userFromRepo.FullName });
+            return Ok(new { token = tokenHandler.WriteToken(token), email = userFromRepo.Email, fullname = userFromRepo.FullName, userId = userFromRepo.UserId });
         }
     }
 }

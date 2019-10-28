@@ -1,6 +1,5 @@
 import { UserService } from 'src/app/services/user.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../user';
 
@@ -11,14 +10,18 @@ import { User } from '../user';
 })
 export class ControllAccessComponent implements OnInit {
 
-  displayedColumns: string[] = ['userId', 'fullName', 'role', 'checkRole'];
+  displayedColumns: string[] = ['userId', 'fullName', 'role', 'checkFirstRole', 'checkSecondRole'];
   idStorage = localStorage.getItem('id');
-  role = localStorage.getItem('role');
   isLoadingResults = true;
   data: User[] = [];
+  roleData: any;
   currentUser: any;
   idCheckbox: number[] = [];
   isChecked: any;
+  checkRole: boolean;
+  isAdmin: any;
+  adminId: any;
+  userId: any;
 
   constructor(private router: Router, private userService: UserService) { }
 
@@ -26,12 +29,6 @@ export class ControllAccessComponent implements OnInit {
   }
 
   ngAfterContentInit() {
-    if (this.role == 'Admin') {
-      this.isChecked = true;
-    }
-    else {
-      this.isChecked = false;
-    }
     this.getUsers();
   }
 
@@ -39,6 +36,7 @@ export class ControllAccessComponent implements OnInit {
     this.userService.getAll()
       .subscribe(users => {
         this.data = users;
+        this.isAdmin = this.data.filter(e => e.role === "Admin");
         this.isLoadingResults = false;
         this.currentUser = this.data.find(d => d.userId.toString() === this.idStorage);
       }, err => {
@@ -48,43 +46,38 @@ export class ControllAccessComponent implements OnInit {
   }
 
   alterarRole() {
+    debugger;
     for (let l = 0; l < this.idCheckbox.length; l++) {
-      let data = this.idCheckbox;
-      console.log(data);
-      this.userService.alterar(data).subscribe(() => {
-        console.log(data);
+      let IdUser = this.idCheckbox.toString();
+      if (this.isChecked) {
+        this.roleData = {
+          IdUser: IdUser,
+          Role: "Admin"
+        }
+      }
+      else {
+        this.roleData = {
+          IdUser: IdUser,
+          Role: "User"
+        };
+      }
+      this.userService.alterar(this.roleData).subscribe(() => {
+        console.log("Usuário alterado");
       });
     }
   }
 
   checkValue(event: any) {
-    if (event.checked) {
-      this.idCheckbox.push(event.source.id);                                                                                                                                                                                                                                                                         
-    }
-    else {
-      this.idCheckbox.pop();
-    }
+    console.log(event);
+    console.log(this.userId == this.data.filter);
+    console.log(this.adminId);
+
+    // this.isChecked = event.checked;
+    // if (event.checked) {
+    //   this.idCheckbox.push(event.source.id);
+    // }
+    // else {
+    //   this.idCheckbox.pop();
+    // }
   }
 }
-
-
-
-// let email = localStorage.getItem('email');
-//     if (this.isChecked == true) {
-//       localStorage.setItem('role', 'Admin');
-//       let role = localStorage.getItem('role');
-//       let data = { role, email };
-//       this.userService.alterar(data)
-//         .subscribe(() => {
-//           this.router.navigate(['book']);
-//         });
-//     }
-//     else {
-//       localStorage.setItem('role', 'User');
-//       let role = localStorage.getItem('role');
-//       let data = { role, email };
-//       this.userService.alterar(data)
-//         .subscribe(() => {
-//           this.router.navigate(['book']);
-//         });
-//     }

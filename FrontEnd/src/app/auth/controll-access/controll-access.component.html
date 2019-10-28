@@ -25,11 +25,21 @@
             </td>
         </ng-container>
 
-        <ng-container matColumnDef="checkRole">
+        <ng-container matColumnDef="checkFirstRole">
             <th math-header-cell *matHeaderCellDef>Tornar admin</th>
             <td mat-cell *matCellDef="let row">
                 <div style="display: flex;justify-content: center;">
-                    <mat-checkbox id={{row.userId}} (change)="checkValue($event)">
+                    <mat-checkbox id="{{adminId}}" (change)="checkValue($event)">
+                    </mat-checkbox>
+                </div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="checkSecondRole">
+            <th math-header-cell *matHeaderCellDef>Tornar user</th>
+            <td mat-cell *matCellDef="let row">
+                <div style="display: flex;justify-content: center;">
+                    <mat-checkbox id="{{userId}}" (change)="checkValue($event)">
                     </mat-checkbox>
                 </div>
             </td>

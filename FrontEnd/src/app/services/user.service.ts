@@ -21,10 +21,10 @@ export class UserService {
             );
     }
 
-    getUser(id: any): Observable<any> {
+    getUser(IdUser: any): Observable<any> {
         return this.http.get<any>(this.apiUrl, {
             params: {
-                id
+                IdUser
             }
         })
             .pipe(
