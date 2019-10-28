@@ -19,12 +19,15 @@ export class ControllAccessComponent implements OnInit {
   isChecked: any;
   roleData: any;
   isAdmin: any;
+
   adminId: any;
   userId: any;
 
-  constructor(private router: Router, private userService: UserService) { }
+  constructor(private router: Router, private userService: UserService) {
+  }
 
   ngOnInit() {
+
   }
 
   ngAfterContentInit() {
@@ -66,16 +69,12 @@ export class ControllAccessComponent implements OnInit {
   }
 
   checkValue(event: any) {
-    console.log(event);
-    console.log(this.userId == this.data.filter);
-    console.log(this.adminId);
-
-    // this.isChecked = event.checked;
-    // if (event.checked) {
-    //   this.idCheckbox.push(event.source.id);
-    // }
-    // else {
-    //   this.idCheckbox.pop();
-    // }
+    this.isChecked = event.checked;
+    if (event.checked) {
+      this.idCheckbox.push(event.source.id);
+    }
+    else {
+      this.idCheckbox.pop();
+    }
   }
 }
